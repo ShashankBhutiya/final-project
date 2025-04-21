@@ -1,0 +1,108 @@
+/* AddProblem.module.css */
+:root {
+    --clr-bg: #ffffff;
+    --clr-card: #ffffff;
+    --clr-primary: #007bff;
+    --clr-primary-hover: #0056b3;
+    --clr-text: #1f2937;
+    --clr-border: #e0e7ff;
+    --clr-shadow: rgba(0, 0, 0, 0.05);
+  }
+  
+  .wrapper {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0056b3;
+    padding: 2rem;
+  }
+  
+  .container {
+    width: 100%;
+    padding: 4rem;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--clr-card);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 16px var(--clr-shadow);
+    /* padding: 20rem; */
+    border: 1px solid var(--clr-border);
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--clr-primary);
+    text-align: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .field label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--clr-text);
+  }
+  
+  .field input,
+  .field textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--clr-border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+  }
+  
+  .button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--clr-primary);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  .button:hover {
+    background-color: var(--clr-primary-hover);
+  }
+  
+  .button:active {
+    transform: translateY(2px);
+  }
+  
+  @media (max-width: 480px) {
+    .wrapper {
+      padding: 1rem;
+    }
+    .container {
+      padding: 1.5rem;
+    }
+    .button {
+      width: 100%;
+    }
+  }
+  
+  

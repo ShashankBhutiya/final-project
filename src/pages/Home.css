@@ -1,0 +1,78 @@
+/* Home.css */
+:root {
+    --clr-heading: #1f2937;
+    --clr-subtext: #4b5563;
+    --clr-bg-light: #ffffff;
+    --clr-primary: #007bff;
+    --clr-shadow: rgba(0, 0, 0, 0.05);
+  }
+  
+  .home-wrapper {
+    background: conic-gradient(from 90deg at center, #a2f9ff, #2ec4b6);
+    animation: vortex 5s linear infinite;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .home-container {
+    background-color: var(--clr-bg-light);
+    padding: 3rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 16px var(--clr-shadow);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    color: var(--clr-heading);
+    margin-bottom: 1rem;
+  }
+  
+  .home-description {
+    font-size: 1.125rem;
+    color: var(--clr-subtext);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .home-benefits {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+  
+  .home-benefits li {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--clr-subtext);
+  }
+  
+  .home-cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--clr-primary);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .home-cta:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  @media (max-width: 600px) {
+    .home-container {
+      padding: 2rem;
+    }
+    .home-title {
+      font-size: 2rem;
+    }
+  }

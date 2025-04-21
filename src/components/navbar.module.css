@@ -1,0 +1,70 @@
+/* Navbar.module.css */
+/* Navbar.module.css */
+.navbar {
+    position: fixed;    /* ✨ fixes it to the viewport */
+    top: 0;             /* align at the very top */
+    left: 0;            /* stretch from the left edge… */
+    right: 0;           /* …to the right edge */
+    width: 100%;        /* ensure full‑width coverage */
+    max-width: auto;  /* optional: constrain width on large screens */
+    margin: 0 auto;     /* center within max‑width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;      /* sit above other content */
+    gap: 2rem;
+  }
+  
+  /* add top‑padding to your main content so it isn’t hidden behind the navbar */
+  .content {
+    padding-top: 4rem; /* adjust to match navbar height */
+  }
+
+  .link {
+    position: relative;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+  }
+  
+  .link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+  }
+  
+  .link:hover {
+    color: #007bff;
+  }
+  
+  .link:hover::after {
+    width: 100%;
+  }
+  
+  .active {
+    color: #007bff;
+  }
+  
+  .active::after {
+    width: 100%;
+  }
+  
+  /* Mobile */
+  @media (max-width: 600px) {
+    .navbar {
+      flex-direction: column;
+      padding: 0.75rem 1rem;
+      gap: 1rem;
+    }
+  }
+  

@@ -1,0 +1,110 @@
+/* Posts.module.css */
+:root {
+    --clr-bg: #ffffff;
+    --clr-card: #ffffff;
+    --clr-primary: #007bff;
+    --clr-primary-hover: #0056b3;
+    --clr-text: #1f2937;
+    --clr-border: #e0e7ff;
+    --clr-shadow: rgba(0, 0, 0, 0.05);
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  .wrapper {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb); /* Add a gradient background */
+    background-size: 400% 400%; /* Make the gradient larger */
+    animation: gradient 15s ease infinite; /* Animate the gradient */
+    /* background/-attachment: fixed; Keep the background fixed */
+    min-height: 100vh; /* Make wrapper take full viewport height */
+    min-width: 100vw; /* Make wrapper take full viewport height */
+    width: 100%; /* Add this to make wrapper take full width */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 2rem; /* Add some padding around the edges */
+  } 
+  
+  .container {
+    /* width: 100%; Add this */
+    max-width: 1200px; /* Add this to control maximum width */
+    min-height: 100vh;
+    background-color: var(--clr-card);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 16px var(--clr-shadow);
+    padding: 2rem;
+    padding-left:  10%;
+    padding-right: 10%;
+    border: 1px solid var(--clr-border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0 auto; /* Add this to center the container */
+  }
+  
+  .heading {
+    font-size: 2rem;
+    color: var(--clr-primary);
+    text-align: center;
+    margin: 0;
+  }
+  
+  .empty {
+    text-align: center;
+    font-style: italic;
+    color: #666666;
+  }
+  
+  .loading {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--clr-text);
+    padding: 2rem;
+  }
+  
+  .card {
+    background-color: var(--clr-card);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px var(--clr-shadow);
+    padding: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--clr-primary);
+  }
+  
+  .desc {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--clr-text);
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 1.5rem;
+    }
+  }
+
+.gradient-vortex {
+  background: conic-gradient(
+    from 0deg at center,
+    #ff2d95, #ff9f1c, #2ec4b6, #e71d36, #ff2d95
+  );
+  animation: vortex 25s linear infinite;
+}
+
+@keyframes vortex {
+  to { transform: rotate(360deg); }
+}
