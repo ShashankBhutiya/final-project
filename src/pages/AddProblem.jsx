@@ -1,66 +1,71 @@
-// AddProblem.jsx
-import { useState } from 'react';
-import styles from './AddProblem.module.css';
+/* Posts.jsx */
+import { useEffect, useState } from "react";
+import styles from "./Posts.module.css";
 
-export default function AddProblem() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+export default function Posts() {
+  const [problem, setProblem] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const newProblem = { title, description };
-
-    try {
-      const res = await fetch(
-        'https://6805818eca467c15be693938.mockapi.io/ps/one',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newProblem),
-        }
-      );
-      if (res.ok) {
-        console.log('Problem added successfully');
-        setTitle('');
-        setDescription('');
-      } else {
-        console.error('Error adding problem');
-      }
-    } catch (error) {
-      console.error('Error adding problem:', error);
-    }
+  // Helper function to format date
+  const formatDate = (dateString) => {
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    };
+    return new Date(dateString).toLocaleString('en-US', options);
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(
+          'https://6805818eca467c15be693938.mockapi.io/ps/one'
+        );
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data = await res.json();
+        setProblem(data);
+      } catch (err) {
+        console.error('Error fetching data:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (loading) return <p className={styles.loading}>Loading...</p>;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <h1 className={styles.heading}>Add a New Problem</h1>
-         <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.field}>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div className={styles.field}>
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            rows={5}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className={styles.button}>
-          Add Problem
-        </button>
-      </form>
-    </div>
+        <h2 className={styles.heading}>Problem Solutions Repository</h2>
+        {problem.length === 0 ? (
+          <p className={styles.empty}>No Problem Solutions Posted Yet.</p>
+        ) : (
+          problem.map((item) => (
+            <div key={item.id} className={styles.card}>
+              <div className={styles.problemSection}>
+                <h3 className={styles.problemTitle}>Problem Statement:</h3>
+                <p className={styles.timestamp}>
+                  Posted on: {formatDate(item.createdAt)}
+                </p>
+                <p className={styles.title}> Q. {item.title}</p>
+              </div>
+              <div className={styles.solutionSection}>
+                <h4 className={styles.solutionTitle}>Solution:</h4>
+                <p className={styles.desc}>{item.description}</p>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }
+
