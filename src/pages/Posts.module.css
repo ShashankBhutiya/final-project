@@ -1,11 +1,11 @@
 /* Posts.module.css */
 :root {
     --clr-bg: #ffffff;
-    --clr-card: #ffffff;
+    --clr-card: #000000;
     --clr-primary: #007bff;
     --clr-primary-hover: #0056b3;
     --clr-text: #1f2937;
-    --clr-border: #e0e7ff;
+    --clr-border: #5f85ff;
     --clr-shadow: rgba(0, 0, 0, 0.05);
   }
   
@@ -20,9 +20,9 @@
     background: linear-gradient(135deg, #f3f4f6, #e5e7eb); /* Add a gradient background */
     background-size: 400% 400%; /* Make the gradient larger */
     animation: gradient 15s ease infinite; /* Animate the gradient */
-    /* background/-attachment: fixed; Keep the background fixed */
+    background-attachment: fixed; /*Keep the background fixed*/
     min-height: 100vh; /* Make wrapper take full viewport height */
-    min-width: 100vw; /* Make wrapper take full viewport height */
+    min-width: 80vw; /*Make wrapper take full viewport height*/
     width: 100%; /* Add this to make wrapper take full width */
     display: flex;
     justify-content: center; /* Center horizontally */
@@ -31,8 +31,8 @@
   } 
   
   .container {
-    /* width: 100%; Add this */
-    max-width: 1200px; /* Add this to control maximum width */
+    width: 100%;
+    max-width: 100%; /* Add this to control maximum width */
     min-height: 100vh;
     background-color: var(--clr-card);
     border-radius: 0.75rem;
@@ -74,10 +74,10 @@
     padding: 1.5rem;
     transition: transform 0.2s ease;
   }
-  
+/*   
   .card:hover {
     transform: translateY(-4px);
-  }
+  } */
   
   .title {
     margin: 0;
@@ -87,6 +87,7 @@
   
   .desc {
     margin-top: 0.5rem;
+    /* margin: 0.5rem; */
     font-size: 1rem;
     color: var(--clr-text);
   }
@@ -107,4 +108,23 @@
 
 @keyframes vortex {
   to { transform: rotate(360deg); }
+}
+
+.problemTitle {
+  color: var(--clr-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+
+.timestamp{
+  color: grey;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+.solutionTitle  {
+  color:#666666;
 }
